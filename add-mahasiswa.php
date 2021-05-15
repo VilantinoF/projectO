@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_POST["submit"])) {
+    if (add_mhs($_POST) > 0) {
+        header("location: index.html");
+    } else {
+        echo "Data gagal ditambahkan";
+    }
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +35,7 @@
             Kota
             <input type="text" name="city">
         </label>
+        <button type="submit"  name="submit">SUBMIT!</button>
     </form>
 
 </body>

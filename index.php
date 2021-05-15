@@ -1,10 +1,9 @@
 <?php
-// require 'functions.php';
+require 'functions.php';
 
 
-$data_mhs = "SELECT * FROM data_mhs";
+$data_mhs = query("SELECT * FROM data_mhs");
 $data_dsn = "SELECT * FROM data_dsn";
-
 
 ?>
 
@@ -46,6 +45,14 @@ $data_dsn = "SELECT * FROM data_dsn";
                     <th>Nama</th>
                     <th>Nilai</th>
                 </tr>
+                <?php foreach ($data_mhs as $row) : ?>
+                <tr>
+                    <td>1.</td>
+                    <td><?= $row["nim"]; ?></td>
+                    <td><?= $row["name"]; ?></td>
+                    <td><a href="">Nilai</a></td>
+                </tr>
+                <?php endforeach ?>
             </table>
 
         </div>
