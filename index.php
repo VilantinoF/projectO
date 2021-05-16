@@ -25,7 +25,7 @@ $data_dsn = query("SELECT * FROM data_dsn");
 <body>
 
     <div class="container">
-        <h1>Welcome Home</h1>
+
         <div class="label">
             <h3>Tabel Dosen</h3>
             <h3>Tabel Mahasiswa</h3>
@@ -36,17 +36,15 @@ $data_dsn = query("SELECT * FROM data_dsn");
                     <th>No.</th>
                     <th>NIP</th>
                     <th>Nama</th>
-                    <th>Pendidikan</th>
-                    <th>Kota</th>
                 </tr>
-                <?php $i_dsn; foreach ($data_dsn as $row) { $i_dsn++; ?>
-                <tr>
-                    <td><?= $i_dsn; ?></td>
-                    <td><?= $row["name"]; ?></td>
-                    <td><?= $row["nip"]; ?></td>
-                    <td><?= $row["degree"]; ?></td>
-                    <td><?= $row["city"]; ?></td>
-                </tr>
+                <?php $i_dsn;
+                foreach ($data_dsn as $row) {
+                    $i_dsn++; ?>
+                    <tr>
+                        <td><?= $i_dsn; ?></td>
+                        <td><a href="data_dsn.php?id=<?= $row["id"]; ?>"><?= $row["nip"]; ?></a></td>
+                        <td><?= $row["name"]; ?></td>
+                    </tr>
                 <?php } ?>
             </table>
             <table class="table-mhs">
@@ -56,23 +54,26 @@ $data_dsn = query("SELECT * FROM data_dsn");
                     <th>Nama</th>
                     <th>Nilai</th>
                 </tr>
-                <?php $i_mhs; foreach ($data_mhs as $row) { $i_mhs++; ?>
-                <tr>
-                    <td><?= $i_mhs; ?></td>
-                    <td><?= $row["nim"]; ?></td>
-                    <td><?= $row["name"]; ?></td>
-                    <td><a href="nilai_mhs.php?id=<?= $row["id"]; ?>">Nilai</a></td>
-                </tr>
+                <?php $i_mhs;
+                foreach ($data_mhs as $row) {
+                    $i_mhs++; ?>
+                    <tr>
+                        <td><?= $i_mhs; ?></td>
+                        <td><?= $row["nim"]; ?></td>
+                        <td><?= $row["name"]; ?></td>
+                        <td><a href="nilai_mhs.php?id=<?= $row["id"]; ?>">Nilai</a></td>
+                    </tr>
                 <?php } ?>
             </table>
 
         </div>
-
-        <a href="add-dosen.php">Tambah Dosen</a>
-        <a href="add-mahasiswa.php">Tambah Mahasiswa</a>
-
+        <div class="button-index">
+            <a class="button button-index button-dsn" href="add-dosen.php">Tambah Dosen</a>
+            <a class="button button-index button-mhs" href="add-mahasiswa.php">Tambah Mahasiswa</a>
+        </div>
 
     </div>
+
 </body>
 
 </html>

@@ -47,21 +47,59 @@ table {
 	border-spacing: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* CSS RESET */
 body {
-    background-color: blanchedalmond;
+    background-color: #e1e5ea;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 .container {
-    margin: 20px;
+    margin: 80px 20px;
     text-align: center;
 }
 
-th, td {
-    border: 2px solid black;
-    padding: 5px;
+table, th, td {
+    padding: 20px;
+	text-align: left;
 }
 
-.table, .label {
+td:first-child {
+	text-align: center;
+}
+
+table {
+	border-radius: 8px;
+}
+
+th:first-child {
+	border-top-left-radius: 8px;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: rgb(165, 165, 165);
+}
+
+th:last-child {
+	border-top-right-radius: 8px;
+}
+
+.table-dsn, .table-mhs {
+	box-shadow: 2px 2px 15px rgb(158, 158, 158);
+}
+
+th {
+	background-color: #a7bbc7;
+}
+
+.table, .label, .button-index {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -69,4 +107,74 @@ th, td {
 
 .label {
 	margin: 20px;
+	font-size: 26px;
+	font-weight: 800;
+}
+
+form {
+    margin: auto;
+    margin-top: 100px;
+    width: max-content;
+}
+
+form label {
+    width: 100px;
+	text-align: left;
+}
+
+form input {
+	border-radius: 6px;
+    height: 18px;
+	border: 2px solid rgb(145, 145, 145);
+}
+
+.form-input {
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+}
+
+form button:hover {
+    color: #008CBA;
+    background-color: #af8888;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.form-box {
+	border-radius: 20px;
+	padding: 30px;
+	background-color: #faf3f3;
+	box-shadow: 5px 3px 10px grey;
+}
+
+.data_dsn, .data_mhs {
+	margin: 0 20px;
+}
+
+a:hover {
+	color: black;
+}
+
+.button {
+	border: 1px solid grey;
+	border-radius: 8px;
+	background-color: #008CBA;
+	padding: 10px;
+	color: white;
+	box-shadow: 0 0 2px grey;
+	margin-top: 20px;
+}
+
+.button-index {
+	margin-top: 20px;
+}
+
+.button:hover {
+	background-color: #ddd;
+	color: black;
 }

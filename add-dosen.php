@@ -21,32 +21,46 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Mahasiswa</title>
+    <title>Add Dosen</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <form action="" method="POST">
-        <label for="nip">
-            NIP
-            <input type="number" name="nip">
-        </label>
-        <label for="name">
-            Nama
-            <input type="text" name="name">
-        </label>
-        <label for="cars">Pendidikan</label>
+        <div class="label">
+            <h3>Input Dosen</h3>
+        </div>
+        <div class="form-box">
 
-        <select name="degree" id="cars">
-            <option value="S1">S1</option>
-            <option value="S2">S2</option>
-            <option value="S3">S3</option>
-        </select>
-        <label for="city">
-            Kota
-            <input type="text" name="city">
-        </label>
-        <button type="submit" name="submit">SUBMIT!</button>
+            <div class="form-input">
+                <label for="nip">NIP</label>
+                <input type="text" name="nip" id="nip" maxlength="18" required>
+            </div>
+            <div class="form-input">
+                <label for="name">Nama</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-input" required>
+                <label for="cars">Pendidikan</label>
+                <select name="degree" id="cars">
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                </select>
+            </div>
+            <div class="form-input">
+                <label for="address">Alamat</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+            <div class="form-input">
+                <label for="city">Kota</label>
+                <input type="text" name="city" id="city" required>
+            </div>
+            <button class="button" type="submit" name="submit">SUBMIT!</button>
+
+        </div>
     </form>
 
 </body>
