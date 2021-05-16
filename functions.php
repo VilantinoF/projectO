@@ -9,6 +9,7 @@ function query($query) {
     while ($row = mysqli_fetch_assoc($data)) {
         $rows[] = $row;
     }
+    return $rows;
 }
 
 
@@ -18,9 +19,22 @@ function add_mhs($query) {
     $nim = $query["nim"];
     $name = $query["name"];
     $city = $query["city"];
-    $insert = "INSERT INTO data_mhs VALUES ('$nim', '$name', '$city')";
+    $insert_mhs = "INSERT INTO data_mhs (nim, name, city) VALUES ('$nim', '$name', '$city')";
 
-    mysqli_query($conn, $insert);
+    mysqli_query($conn, $insert_mhs);
+    return mysqli_affected_rows($conn);
+}
+
+function add_dsn($query) {
+    global $conn;
+    
+    $nip = $query["nip"];
+    $name = $query["name"];
+    $degree = $query["degree"];
+    $city = $query["city"];
+    $insert_dsn = "INSERT INTO data_dsn (nip, name, degree, city) VALUES ('$nip', '$name', '$degree', '$city')";
+
+    mysqli_query($conn, $insert_dsn);
     return mysqli_affected_rows($conn);
 }
 

@@ -3,7 +3,7 @@ require 'functions.php';
 
 
 $data_mhs = query("SELECT * FROM data_mhs");
-$data_dsn = "SELECT * FROM data_dsn";
+$data_dsn = query("SELECT * FROM data_dsn");
 
 ?>
 
@@ -34,9 +34,20 @@ $data_dsn = "SELECT * FROM data_dsn";
             <table class="table-dsn">
                 <tr>
                     <th>No.</th>
-                    <th>NIK</th>
+                    <th>NIP</th>
                     <th>Nama</th>
+                    <th>Pendidikan</th>
+                    <th>Kota</th>
                 </tr>
+                <?php $i_dsn; foreach ($data_dsn as $row) { $i_dsn++; ?>
+                <tr>
+                    <td><?= $i_dsn; ?></td>
+                    <td><?= $row["name"]; ?></td>
+                    <td><?= $row["nip"]; ?></td>
+                    <td><?= $row["degree"]; ?></td>
+                    <td><?= $row["city"]; ?></td>
+                </tr>
+                <?php } ?>
             </table>
             <table class="table-mhs">
                 <tr>
@@ -45,14 +56,14 @@ $data_dsn = "SELECT * FROM data_dsn";
                     <th>Nama</th>
                     <th>Nilai</th>
                 </tr>
-                <?php foreach ($data_mhs as $row) : ?>
+                <?php $i_mhs; foreach ($data_mhs as $row) { $i_mhs++; ?>
                 <tr>
-                    <td>1.</td>
+                    <td><?= $i_mhs; ?></td>
                     <td><?= $row["nim"]; ?></td>
                     <td><?= $row["name"]; ?></td>
-                    <td><a href="">Nilai</a></td>
+                    <td><a href="nilai_mhs.php?id=<?= $row["id"]; ?>">Nilai</a></td>
                 </tr>
-                <?php endforeach ?>
+                <?php } ?>
             </table>
 
         </div>

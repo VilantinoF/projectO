@@ -1,10 +1,12 @@
 <?php
 
+require 'functions.php';
+
 if (isset($_POST["submit"])) {
     if (add_mhs($_POST) > 0) {
-        header("location: index.html");
+        header("location: index.php");
     } else {
-        echo "Data gagal ditambahkan";
+        echo "data gagal ditambahkan";
     }
 }
 
@@ -22,7 +24,7 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     
-    <form action="index.php" method="POST">
+    <form action="" method="POST">
         <label for="nim">
             NIM
             <input type="number" name="nim">
