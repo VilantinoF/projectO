@@ -23,7 +23,7 @@ $data_dsn = query("SELECT * FROM data_dsn WHERE id=$id");
 
 <body>
     <div class="container">
-        <h1>Tabel Nilai</h1>
+        <h3 class="label">Tabel Nilai</h3>
         <table class="table">
             <tr>
                 <th>No.</th>

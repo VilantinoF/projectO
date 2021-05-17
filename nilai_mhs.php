@@ -23,7 +23,7 @@ $nilai_mhs = query("SELECT nilai_mhs.*, data_mhs.name, data_mhs.nim FROM nilai_m
 
 <body>
     <div class="container">
-        <h1>Tabel Nilai</h1>
+        <h3 class="label">Tabel Nilai</h3>
         <table class="table">
             <tr>
                 <th>No.</th>
