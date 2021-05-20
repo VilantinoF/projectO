@@ -1,11 +1,18 @@
 <?php
-require 'functions.php';
-
-
-$data_mhs = query("SELECT * FROM data_mhs");
-$data_dsn = query("SELECT * FROM data_dsn");
+if (isset($_POST["next"])) {
+    $value = $_POST["pegawai"];
+    try {
+        //code...
+        header("Location: $value.php");
+    } catch (Exception $e) {
+        //throw $th;
+        echo "<script> alert('Data Belum Diinput'); </script>";
+    }
+}
 
 ?>
+
+
 
 
 
@@ -16,63 +23,35 @@ $data_dsn = query("SELECT * FROM data_dsn");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-
+    
 </head>
 
 <body>
 
     <div class="container">
+        <form action="" method="POST">
+            <label for="pegawai">Choose one</label>
 
-        <div class="label">
-            <h3>Tabel Dosen</h3>
-            <h3>Tabel Mahasiswa</h3>
-        </div>
-        <div class="table">
-            <table class="table-dsn">
-                <tr>
-                    <th>No.</th>
-                    <th>NIP</th>
-                    <th>Nama</th>
-                </tr>
-                <?php $i_dsn;
-                foreach ($data_dsn as $row) {
-                    $i_dsn++; ?>
-                    <tr>
-                        <td><?= $i_dsn; ?></td>
-                        <td><a href="data_dsn.php?id=<?= $row["id"]; ?>"><?= $row["nip"]; ?></a></td>
-                        <td><?= $row["name"]; ?></td>
-                    </tr>
-                <?php } ?>
-            </table>
-            <table class="table-mhs">
-                <tr>
-                    <th>No.</th>
-                    <th>NIM</th>
-                    <th>Nama</th>
-                    <th>Nilai</th>
-                </tr>
-                <?php $i_mhs;
-                foreach ($data_mhs as $row) {
-                    $i_mhs++; ?>
-                    <tr>
-                        <td><?= $i_mhs; ?></td>
-                        <td><?= $row["nim"]; ?></td>
-                        <td><?= $row["name"]; ?></td>
-                        <td><a href="nilai_mhs.php?id=<?= $row["id"]; ?>">Nilai</a></td>
-                    </tr>
-                <?php } ?>
-            </table>
+            <select name="pegawai" id="pegawai">
+                <option value="000">Perencanaan Kebutuhan Pegawai (000)</option>
+                <option value="100">Rekruitmen Pegawai (100)</option>
+                <option value="200">Pelatihan dan Pendidikan Kepegawaian (200)</option>
+                <option value="300">Kenaikan Pangkat Pegawai (300)</option>
+                <option value="400">Mutasi dan Rotasi Pegawai (400)</option>
+                <option value="500">Kinerja Pegawai (500)</option>
+                <option value="600">Kesejahteraan dan Cuti Pegawai (600)</option>
+                <option value="700">Pensiun Pegawai (700)</option>
+                <option value="800">Dosir Pegawai (800)</option>
+                <option value="900">Kependidikan Internal (900)</option>
+            </select>
 
-        </div>
-        <div class="button-index">
-            <a class="button button-index button-dsn" href="add-dosen.php">Tambah Dosen</a>
-            <a class="button button-index button-mhs" href="add-mahasiswa.php">Tambah Mahasiswa</a>
-        </div>
-
+            <button type="submit" name="next">Next</button>
+        </form>
     </div>
+
 
 </body>
 

@@ -139,10 +139,10 @@ form input {
 	margin-top: 10px;
 }
 
-form button:hover {
+/* form button:hover {
     color: #008CBA;
     background-color: #af8888;
-}
+} */
 
 .form {
 	display: flex;
@@ -179,7 +179,7 @@ a:hover {
 	margin-top: 20px;
 }
 
-.button:hover {
+/* .button:hover {
 	background-color: #ddd;
 	color: black;
-}
+} */

@@ -54,5 +54,15 @@ function add_nilai_mhs($query) {
     return mysqli_affected_rows($conn);
 }
 
+function search($keyword) {
+    $result = "(SELECT name FROM data_mhs WHERE name LIKE '%
+    $keyword%') 
+    UNION
+    (SELECT name FROM data_dsn WHERE name LIKE '%
+    $keyword%')";
+
+    return query($result);
+}
+
 
 ?>
