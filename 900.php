@@ -44,7 +44,7 @@ if (isset($_POST["next"])) {
                 <option value="990">Magang (800)</option>
             </select>
 
-            <button type="submit" name="next">Next</button>
+            <button class="button button-search" type="submit" name="next">Next</button>
         </form>
     </div>
 

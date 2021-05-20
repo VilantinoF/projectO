@@ -131,6 +131,7 @@ form input {
 	border-radius: 6px;
     height: 18px;
 	border: 2px solid rgb(145, 145, 145);
+	padding: 2px;
 }
 
 .form-input {
@@ -175,11 +176,16 @@ a:hover {
 	margin-top: 20px;
 }
 
+.button-search {
+	padding: 4px;
+	border-radius: 5px;
+}
+
 .button-index {
 	margin-top: 20px;
 }
 
-/* .button:hover {
+.button:hover {
 	background-color: #ddd;
 	color: black;
-} */
+}
