@@ -1,7 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'javg2662_vilantinof', 'Project1945@', 'javg2662_projectO');
-// $id = $_GET["id"];
+$conn = mysqli_connect('localhost', 'root', '', 'ProjectO');
 
 function query($query) {
     global $conn;
