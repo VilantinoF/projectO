@@ -1,5 +1,16 @@
 <?php
+require 'functions.php';
 
+if (isset($_POST["signup"])) {
+    if (signup($_POST) > 0) {
+        echo "  <script>
+                    alert('User Berhasih Ditambahkan');
+        
+                </script>";
+    } else {
+        echo mysqli_error($conn);
+    }
+}
 
 ?>
 
@@ -29,6 +40,10 @@
                 <div class="form-input">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password">
+                </div>
+                <div class="form-input">
+                    <label for="password2">Password Confirmation</label>
+                    <input type="password" name="password2" id="password2">
                 </div>
                 <button class="button" type="submit" name="signup">Sign Up!</button>
             </div>

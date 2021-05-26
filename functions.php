@@ -63,5 +63,27 @@ function search($keyword) {
     return query($result);
 }
 
+function signup($query) {
+    global $conn;
+
+    $uname = strtolower(stripslashes($query["username"]));
+    $pass = mysqli_real_escape_string($conn, $query["password"]);
+    $pass2 = mysqli_real_escape_string($conn, $query["password2"]);
+
+    if ($pass != $pass2) {
+        echo "  <script>
+                    alert('Konfirmasi Password Tidak Sesuai');
+                </script>
+        ";
+        return false;
+    }
+
+    $pass = password_hash($pass, PASSWORD_DEFAULT);
+    $insert_user = "INSERT INTO user (username, password) VALUES ('$uname', '$pass')";
+    mysqli_query($conn, $insert_user);
+    return mysqli_affected_rows($conn);
+
+}
+
 
 ?>
