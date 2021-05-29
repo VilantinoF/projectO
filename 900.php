@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["choosen"])) {
-    header("Location: kepegawaian.php");
+    header("Location: signin.php");
     exit;
 }
 

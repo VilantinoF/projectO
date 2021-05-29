@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["choosen"])) {
-    header("Location: kepegawaian.php");
+if ( !isset($_SESSION["choosen"]) ) {
+    header("Location: signin.php");
     exit;
 }
 
@@ -60,7 +60,7 @@ if (isset($_POST["search"])) {
                     <th>NIP</th>
                     <th>Nama</th>
                 </tr>
-                <?php $i_dsn;
+                <?php $i_dsn = 0;
                 foreach ($data_dsn as $row) {
                     $i_dsn++; ?>
                     <tr>
@@ -77,7 +77,7 @@ if (isset($_POST["search"])) {
                     <th>Nama</th>
                     <th>Nilai</th>
                 </tr>
-                <?php $i_mhs;
+                <?php $i_mhs = 0;
                 foreach ($data_mhs as $row) {
                     $i_mhs++; ?>
                     <tr>

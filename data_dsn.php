@@ -33,7 +33,7 @@ $data_dsn = query("SELECT * FROM data_dsn WHERE id=$id");
                 <th>Alamat</th>
                 <th>Domisili</th>
             </tr>
-            <?php $i;
+            <?php $i = 0;
             foreach ($data_dsn as $row) {
                 $i++; ?>
                 <tr>

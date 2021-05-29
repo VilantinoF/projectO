@@ -34,7 +34,7 @@ $nilai_mhs = query("SELECT nilai_mhs.*, data_mhs.name, data_mhs.nim FROM nilai_m
                 <th>Semester 3</th>
                 <th>Semester 4</th>
             </tr>
-            <?php $i;
+            <?php $i = 0;
             foreach ($nilai_mhs as $row) {
                 $i++; ?>
                 <tr>

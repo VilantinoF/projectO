@@ -5,7 +5,7 @@ if (isset($_POST["signup"])) {
     if (signup($_POST) > 0) {
         echo "  <script>
                     alert('User Berhasih Ditambahkan');
-        
+                    window.location.replace('signin.php');
                 </script>";
     } else {
         echo mysqli_error($conn);

@@ -1,9 +1,13 @@
 <?php
 session_start();
 
+if ( !isset($_SESSION["choosen"]) ) {
+    header("Location: signin.php");
+    exit;
+}
+
 if (isset($_POST["next"])) {
     $value = $_POST["pegawai"];
-    $_SESSION["choosen"] = true;
     header("Location: $value.php");
 }
 
