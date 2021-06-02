@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ( !isset($_SESSION["choosen"]) ) {
+if (!isset($_SESSION["choosen"])) {
     header("Location: signin.php");
     exit;
 }
@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
 
 <body>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="label">
             <h3>Input Mahasiswa</h3>
         </div>
@@ -54,6 +54,10 @@ if (isset($_POST["submit"])) {
                 <div class="form-input">
                     <label for="city">Kota</label>
                     <input type="text" name="city" id="city" required>
+                </div>
+                <div class="form-input">
+                    <label for="file">Select File</label>
+                    <input type="file" name="file" id="file">
                 </div>
                 <button class="button" type="submit" name="submit">SUBMIT!</button>
             </div>

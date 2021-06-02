@@ -1,7 +1,14 @@
 <?php
 session_start();
 
+if ( isset($_SESSION["choosen"]) ) {
+    header("Location: index.php");
+    exit;
+}
+
 require 'functions.php';
+
+$error = false;
 
 if (isset($_POST["signin"])) {
 
@@ -45,7 +52,11 @@ if (isset($_POST["signin"])) {
     <div class="container">
 
         <form action="" method="POST">
+            <h1>SIGN IN</h1>
             <div class="form-box">
+                <?php if ($error) : ?>
+                    <p class="error">Username / Password Salah</p>
+                <?php endif; ?>
                 <div class="form-input">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username">
@@ -56,7 +67,8 @@ if (isset($_POST["signin"])) {
                 </div>
                 <button class="button" type="submit" name="signin">Sign In</button>
             </div>
-            <a href="signup.php">SIGN UP</a>
+            <br><br>
+            <p>Create Account? <a href="signup.php">Sign Up</a></p>
         </form>
 
     </div>

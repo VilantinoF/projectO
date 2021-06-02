@@ -9,12 +9,14 @@ if ( !isset($_SESSION["choosen"]) ) {
 require 'functions.php';
 
 if (isset($_POST["submit"])) {
+    // var_dump($_FILES);die;
     if (add_dsn($_POST) > 0) {
         header("location: index.php");
     } else {
         echo "data gagal ditambahkan";
     }
 }
+
 
 ?>
 
@@ -34,15 +36,15 @@ if (isset($_POST["submit"])) {
 
 <body>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="label">
             <h3>Input Dosen</h3>
         </div>
         <div class="form-box">
 
             <div class="form-input">
-                <label for="nip">NIP</label>
-                <input type="text" name="nip" id="nip" maxlength="18" required>
+                <label for="nim">NIP</label>
+                <input type="text" name="nim" id="nim" maxlength="18" required>
             </div>
             <div class="form-input">
                 <label for="name">Nama</label>
@@ -63,6 +65,10 @@ if (isset($_POST["submit"])) {
             <div class="form-input">
                 <label for="city">Kota</label>
                 <input type="text" name="city" id="city" required>
+            </div>
+            <div class="form-input">
+                <label for="file">Select File</label>
+                <input type="file" name="file" id="file">
             </div>
             <button class="button" type="submit" name="submit">SUBMIT!</button>
 

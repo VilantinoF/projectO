@@ -14,8 +14,8 @@ $data_dsn = query("SELECT * FROM data_dsn");
 
 
 if (isset($_POST["search"])) {
-    $data_dsn = search($_POST["keyword"]);
-    $data_mhs = search($_POST["keyword"]);
+    $result = $_POST["keyword"];
+    header("Location: search.php?search=$result");
 }
 
 
@@ -39,6 +39,8 @@ if (isset($_POST["search"])) {
 <body>
 
     <div class="container">
+
+    <a class=button href="logout.php">Log Out</a>
 
 
     <div class="search">
@@ -82,7 +84,7 @@ if (isset($_POST["search"])) {
                     $i_mhs++; ?>
                     <tr>
                         <td><?= $i_mhs; ?></td>
-                        <td><?= $row["nim"]; ?></td>
+                        <td><a href="data_mhs.php?id=<?= $row["id"] ?>"><?= $row["nim"]; ?></a></td>
                         <td><?= $row["name"]; ?></td>
                         <td><a href="nilai_mhs.php?id=<?= $row["id"]; ?>">Nilai</a></td>
                     </tr>

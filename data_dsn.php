@@ -23,7 +23,7 @@ $data_dsn = query("SELECT * FROM data_dsn WHERE id=$id");
 
 <body>
     <div class="container">
-        <h3 class="label">Tabel Nilai</h3>
+        <h3 class="label">Tabel Dosen</h3>
         <table class="table">
             <tr>
                 <th>No.</th>
@@ -32,6 +32,7 @@ $data_dsn = query("SELECT * FROM data_dsn WHERE id=$id");
                 <th>Pendidikan</th>
                 <th>Alamat</th>
                 <th>Domisili</th>
+                <th>File</th>
             </tr>
             <?php $i = 0;
             foreach ($data_dsn as $row) {
@@ -43,13 +44,18 @@ $data_dsn = query("SELECT * FROM data_dsn WHERE id=$id");
                     <td><?= $row["degree"] ?></td>
                     <td><?= $row["address"] ?></td>
                     <td><?= $row["city"] ?></td>
+                    <?php if (!$row['file']) { ?>
+                        <td>Open</td>
+                    <?php } else { ?>
+                        <td><a href="files/<?= $row['file'] ?>">Open</a></td>
+                    <?php } ?>
                 </tr>
             <?php } ?>
         </table>
 
         <a href="index.php">Kembali</a>
 
-        
+
     </div>
 
 </body>

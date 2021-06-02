@@ -19,29 +19,63 @@ function add_mhs($query) {
     $nim = $query["nim"];
     $name = $query["name"];
     $city = $query["city"];
-    $insert_mhs = "INSERT INTO data_mhs (nim, name, city) VALUES ('$nim', '$name', '$city')";
+    $file = upload($query);
+    
+    if ( !$file ) {
+        return false;
+    }
+    
+    $insert_mhs = "INSERT INTO data_mhs (nim, name, city, file) VALUES ('$nim', '$name', '$city', '$file')";
 
     mysqli_query($conn, $insert_mhs);
     return mysqli_affected_rows($conn);
 }
 
+
+
 function add_dsn($query) {
     global $conn;
     
-    $nip = $query["nip"];
+    $nip = $query["nim"];
     $name = $query["name"];
     $degree = $query["degree"];
     $address = $query["address"];
     $city = $query["city"];
-    $insert_dsn = "INSERT INTO data_dsn (nip, name, degree, address, city) VALUES ('$nip', '$name', '$degree', '$address', '$city')";
+    $file = upload($query);
+    
+    if ( !$file ) {
+        return false;
+    }
+    
+    $insert_dsn = "INSERT INTO data_dsn (nip, name, degree, address, city, file) VALUES ('$nip', '$name', '$degree', '$address', '$city', '$file')";
 
     mysqli_query($conn, $insert_dsn);
     return mysqli_affected_rows($conn);
 }
 
+function upload($query) {
+    $nameFile = $_FILES['file']['name'];
+    $tmpFile = $_FILES['file']['tmp_name'];
+    $eksFileValid = ['docx', 'pdf', 'xlsx', 'pptx'];
+    $eksFile = explode('.', $nameFile);
+    $eksFile = strtolower(end($eksFile));
+    $newNameFile = $query['nim'] . '.' . $eksFile;
+
+    if ( !in_array($eksFile, $eksFileValid) ) {
+        echo "  <script>
+        alert('Please Select Valid Type');
+        </script>
+        ";
+        return false;
+    }
+
+    move_uploaded_file($tmpFile, 'files/' . $newNameFile);
+    return $newNameFile;
+}
+
 function add_nilai_mhs($query) {
     global $conn;
-
+    
     $name = $query["name"];
     $smt1 = $query["smt1"];
     $smt2 = $query["smt2"];
@@ -54,11 +88,11 @@ function add_nilai_mhs($query) {
 }
 
 function search($keyword) {
-    $result = "(SELECT name FROM data_mhs WHERE name LIKE '%
-    $keyword%') 
+    $result = "(SELECT id, nim, name, 'mhs' as type FROM data_mhs WHERE nim LIKE '%" . 
+    $keyword . "%' OR name LIKE '%" . $keyword ."%') 
     UNION
-    (SELECT name FROM data_dsn WHERE name LIKE '%
-    $keyword%')";
+    (SELECT id, nip, name, 'dsn' as type FROM data_dsn WHERE  nip LIKE '%" . 
+    $keyword . "%' OR name LIKE '%" . $keyword ."%')";
 
     return query($result);
 }
@@ -83,6 +117,3 @@ function signup($query) {
     return mysqli_affected_rows($conn);
 
 }
-
-
-?>
