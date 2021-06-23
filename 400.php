@@ -8,8 +8,23 @@ if (!isset($_SESSION["choosen"])) {
 
 if (isset($_POST["next"])) {
     $value = $_POST["pegawai"];
+    switch ($_POST["pegawai"]) {
+        case '410':
+            # code...
+            header("Location: $value.php");
+            break;
+        case '420':
+            header("Location: $value.php");
+            break;
+        case '430':
+            header("Location: $value.php");
+            break;
+        default:
+            # code...
+            echo "ERROR 404 Page Not Found";
+            break;
+    }
 
-    header("Location: index.php");
     exit();
 }
 
@@ -40,15 +55,9 @@ if (isset($_POST["next"])) {
             <label for="pegawai">Choose one</label>
 
             <select name="pegawai" id="pegawai">
-                <option value="910">Data Pribadi (910)</option>
-                <option value="920">Fasilitas Pendidikan (920)</option>
-                <option value="930">Pembagian Jadwal Belajar (930)</option>
-                <option value="940">Data Himpunan (940)</option>
-                <option value="950">Anggaran Fasilitas (950)</option>
-                <option value="960">Daftar Mata Kuliah (960)</option>
-                <option value="970">Data Cuti Mahasiswa (970)</option>
-                <option value="980">Jurusan (980)</option>
-                <option value="990">Magang (990)</option>
+                <option value="410">Data Pribadi (410)</option>
+                <option value="420">Pembagian Jadwal Belajar (420)</option>
+                <option value="430">Anggaran Fasilitas Pendidikan (430)</option>
             </select>
 
             <button class="button button-search" type="submit" name="next">Next</button>

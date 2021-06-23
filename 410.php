@@ -1,10 +1,10 @@
 <?php
-// session_start();
+session_start();
 
-// if ( !isset($_SESSION["choosen"]) ) {
-//     header("Location: signin.php");
-//     exit;
-// }
+if ( !isset($_SESSION["choosen"]) ) {
+    header("Location: signin.php");
+    exit;
+}
 
 require 'functions.php';
 

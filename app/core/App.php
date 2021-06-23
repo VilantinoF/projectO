@@ -3,7 +3,7 @@
 class App
 {
 
-    protected $controller = 'Home';
+    protected $controller = 'DataPribadi';
     protected $method = 'index';
     protected $params = [];
 

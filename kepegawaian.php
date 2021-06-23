@@ -38,16 +38,11 @@ if (isset($_POST["next"])) {
             <label for="pegawai">Choose one</label>
 
             <select name="pegawai" id="pegawai">
-                <option value="000">Perencanaan Kebutuhan Pegawai (000)</option>
-                <option value="100">Rekruitmen Pegawai (100)</option>
-                <option value="200">Pelatihan dan Pendidikan Kepegawaian (200)</option>
-                <option value="300">Kenaikan Pangkat Pegawai (300)</option>
-                <option value="400">Mutasi dan Rotasi Pegawai (400)</option>
-                <option value="500">Kinerja Pegawai (500)</option>
-                <option value="600">Kesejahteraan dan Cuti Pegawai (600)</option>
-                <option value="700">Pensiun Pegawai (700)</option>
-                <option value="800">Dosir Pegawai (800)</option>
-                <option value="900">Kependidikan Internal (900)</option>
+                <option value="000">Pelatihan dan Pendidikan Kepegawaian (000)</option>
+                <option value="100">Kenaikan Pangkat Pegawai (100)</option>
+                <option value="200">Himpunan Mahasiswa Jurusan (200)</option>
+                <option value="300">Prestasi Mahasiswa & Dosen (300)</option>
+                <option value="400">Kependidikan Internal (400)</option>
             </select>
 
             <button class="button button-search" type="submit" name="next">Next</button>
