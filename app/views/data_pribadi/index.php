@@ -53,8 +53,8 @@
 
     </div>
     <div class="button-index">
-        <a class="button button-index button-dsn" href="<?= BASEURL ?>/data_pribadi/add_dosen">Tambah Dosen</a>
-        <a class="button button-index button-mhs" href="<?= BASEURL ?>/data_pribadi/add_mahasiswa">Tambah Mahasiswa</a>
+        <a class="button button-index button-dsn" href="<?= BASEURL ?>/Dosen/add_dosen">Tambah Dosen</a>
+        <a class="button button-index button-mhs" href="<?= BASEURL ?>/Mahasiswa/add_mahasiswa">Tambah Mahasiswa</a>
     </div>
 
 </div>

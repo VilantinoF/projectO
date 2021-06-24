@@ -12,22 +12,29 @@ class DataPribadi extends Controller
         $this->view('templates/footer');
     }
 
-    public function add_dosen()
-    {
-        $data['tittle'] = 'Tambah Data Dosen';
-        $this->view('templates/header', $data);
-        $this->view('data_pribadi/add_dosen');
-        $this->view('templates/footer');
-    }
+    // public function add_dosen()
+    // {
+    //     $data['tittle'] = 'Tambah Data Dosen';
+    //     $this->view('templates/header', $data);
+    //     $this->view('data_pribadi/add_dosen');
+    //     $this->view('templates/footer');
 
 
-    public function add_mahasiswa()
-    {
-        $data['tittle'] = 'Tambah Data Mahasiswa';
-        $this->view('templates/header', $data);
-        $this->view('data_pribadi/add_mahasiswa');
-        $this->view('templates/footer');
-    }
+    //     var_dump($_POST);
+    //     if ( $this->model('DsnModel')->addData($_POST) > 0 ) {
+    //         header('Location;' . BASEURL . '/data_pribadi');
+    //         exit;
+    //     }
+    // }
+
+
+    // public function add_mahasiswa()
+    // {
+    //     $data['tittle'] = 'Tambah Data Mahasiswa';
+    //     $this->view('templates/header', $data);
+    //     $this->view('data_pribadi/add_mahasiswa');
+    //     $this->view('templates/footer');
+    // }
 
 
 }
