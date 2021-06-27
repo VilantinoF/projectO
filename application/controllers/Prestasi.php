@@ -7,7 +7,7 @@ class Prestasi extends CI_Controller
     {
         parent::__construct();
         if (!$this->session->userdata('username')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -25,13 +25,13 @@ class Prestasi extends CI_Controller
         } else {
             switch ($sproblem) {
                 case '310':
-                    $sproblem = 'dosen';
+                    $sproblem = 'Dosen';
                     break;
                 case '320':
-                    $sproblem = 'mahasiswa';
+                    $sproblem = 'Mahasiswa';
                     break;
             }
-            redirect('prestasi/' . $sproblem);
+            redirect('Prestasi/' . $sproblem);
         }
     }
 
@@ -43,16 +43,6 @@ class Prestasi extends CI_Controller
         $data['dosen'] = $this->db->get('prestasi_dosen')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('prestasi/dosen', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function mahasiswa()
-    {
-        $data['tittle'] = 'Prestasi Mahasiswa';
-
-        $data['mahasiswa'] = $this->db->get('prestasi_mahasiswa')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('prestasi/mahasiswa', $data);
         $this->load->view('templates/footer');
     }
 
@@ -76,8 +66,18 @@ class Prestasi extends CI_Controller
                 'jenis_lomba' => $this->input->post('jenis_lomba', true)
             ];
             $this->db->insert('prestasi_dosen', $data);
-            redirect('prestasi/dosen');
+            redirect('Prestasi/Dosen');
         }
+    }
+
+    public function mahasiswa()
+    {
+        $data['tittle'] = 'Prestasi Mahasiswa';
+
+        $data['mahasiswa'] = $this->db->get('prestasi_mahasiswa')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('prestasi/mahasiswa', $data);
+        $this->load->view('templates/footer');
     }
 
     public function addPrestasiMahasiswa()
@@ -102,7 +102,7 @@ class Prestasi extends CI_Controller
                 'jenis_lomba' => $this->input->post('jenis_lomba', true)
             ];
             $this->db->insert('prestasi_mahasiswa', $data);
-            redirect('prestasi/mahasiswa');
+            redirect('Prestasi/Mahasiswa');
         }
     }
 }

@@ -6,7 +6,7 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('username')) {
-            redirect('mainproblem');
+            redirect('MainProblem');
         }
 
         $data['tittle'] = 'Login Page';
@@ -36,14 +36,14 @@ class Auth extends CI_Controller
                     'username' => $user['username']
                 ];
                 $this->session->set_userdata($data);
-                redirect('mainproblem');
+                redirect('MainProblem');
             } else {
                 $this->session->set_flashdata('message', 'Wrong password!');
                 redirect('auth');
             }
         } else {
             $this->session->set_flashdata('message', 'Wrong username!');
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -51,7 +51,7 @@ class Auth extends CI_Controller
     public function signup()
     {
         if ($this->session->userdata('username')) {
-            redirect('mainproblem');
+            redirect('MainProblem');
         }
 
         $data['tittle'] = 'Registration Page';
@@ -72,7 +72,7 @@ class Auth extends CI_Controller
 
             $this->db->insert('user', $data);
             $this->session->set_flashdata('message', 'Account has been created. Please login!');
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -80,6 +80,6 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('username');
 
-        redirect('auth');
+        redirect('Auth');
     }
 }

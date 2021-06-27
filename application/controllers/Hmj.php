@@ -7,7 +7,7 @@ class Hmj extends CI_Controller
     {
         parent::__construct();
         if (!$this->session->userdata('username')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -25,16 +25,16 @@ class Hmj extends CI_Controller
         } else {
             switch ($sproblem) {
                 case '210':
-                    $sproblem = 'struktur';
+                    $sproblem = 'Struktur';
                     break;
                 case '220':
-                    $sproblem = 'event';
+                    $sproblem = 'Event';
                     break;
                 case '230':
-                    $sproblem = 'pengumuman';
+                    $sproblem = 'Pengumuman';
                     break;
             }
-            redirect('hmj/' . $sproblem);
+            redirect('Hmj/' . $sproblem);
         }
     }
 
@@ -48,31 +48,10 @@ class Hmj extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function event()
-    {
-        $data['tittle'] = 'Event';
-
-        $data['event'] = $this->db->get('event')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('hmj/event', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function pengumuman()
-    {
-        $data['tittle'] = 'Pengumuman';
-
-        $data['event'] = $this->db->get('pengumuman')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('hmj/pengumuman', $data);
-        $this->load->view('templates/footer');
-    }
-
     public function addStruktur()
     {
 
         $data['tittle'] = 'Tambah Struktur Organisasi';
-        // $data['kelas'] = $this->ModelHimpunan->getStruktur();
 
         $this->form_validation->set_rules('name', 'nama', 'required');
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
@@ -88,8 +67,18 @@ class Hmj extends CI_Controller
                 'jabatan' => $this->input->post('jabatan', true)
             ];
             $this->db->insert('struktur_organisasi', $data);
-            redirect('hmj/struktur');
+            redirect('Hmj/Struktur');
         }
+    }
+
+    public function event()
+    {
+        $data['tittle'] = 'Event';
+
+        $data['event'] = $this->db->get('event')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('hmj/event', $data);
+        $this->load->view('templates/footer');
     }
 
     public function addEvent()
@@ -113,8 +102,18 @@ class Hmj extends CI_Controller
                 'ket' => $this->input->post('ket', true)
             ];
             $this->db->insert('event', $data);
-            redirect('hmj/event');
+            redirect('Hmj/Event');
         }
+    }
+
+    public function pengumuman()
+    {
+        $data['tittle'] = 'Pengumuman';
+
+        $data['event'] = $this->db->get('pengumuman')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('hmj/pengumuman', $data);
+        $this->load->view('templates/footer');
     }
 
     public function addPengumuman()
@@ -138,7 +137,7 @@ class Hmj extends CI_Controller
                 'ket' => $this->input->post('ket', true)
             ];
             $this->db->insert('pengumuman', $data);
-            redirect('hmj/pengumuman');
+            redirect('Hmj/Pengumuman');
         }
     }
 }

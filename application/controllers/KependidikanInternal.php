@@ -7,7 +7,7 @@ class KependidikanInternal extends CI_Controller
     {
         parent::__construct();
         if (!$this->session->userdata('username')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -25,18 +25,18 @@ class KependidikanInternal extends CI_Controller
             switch ($sproblem) {
                 case '410':
                     # code...
-                    $sproblem = 'datapribadi';
+                    $sproblem = 'DataPribadi';
                     break;
                 case '420':
                     # code...
-                    $sproblem = 'jadwal';
+                    $sproblem = 'Jadwal';
                     break;
                 case '430':
                     # code...
-                    $sproblem = 'anggaranfasilitas';
+                    $sproblem = 'AnggaranFasilitas';
                     break;
             }
-            redirect('kependidikaninternal/' . $sproblem);
+            redirect('KependidikanInternal/' . $sproblem);
         }
     }
 
@@ -75,7 +75,7 @@ class KependidikanInternal extends CI_Controller
             $this->load->view('templates/header');
         } else {
             $this->ModelDosen->addDosen();
-            redirect('kependidikaninternal/datapribadi');
+            redirect('KependidikanInternal/DataPribadi');
         }
     }
 
@@ -117,7 +117,7 @@ class KependidikanInternal extends CI_Controller
         } else {
             $this->ModelMahasiswa->addMahasiswa();
             $this->ModelMahasiswa->getNilaiById();
-            redirect('kependidikaninternal/datapribadi');
+            redirect('KependidikanInternal/DataPribadi');
         }
     }
 
@@ -148,7 +148,7 @@ class KependidikanInternal extends CI_Controller
             ];
 
             $this->db->insert('jadwal', $data);
-            redirect('kependidikaninternal/jadwal');
+            redirect('KependidikanInternal/Jadwal');
         }
     }
 
@@ -180,7 +180,7 @@ class KependidikanInternal extends CI_Controller
             ];
 
             $this->db->insert('anggaran', $data);
-            redirect('kependidikaninternal/anggaranfasilitas');
+            redirect('KependidikanInternal/AnggaranFasilitas');
         }
     }
 }
