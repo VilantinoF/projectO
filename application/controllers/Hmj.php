@@ -48,10 +48,31 @@ class Hmj extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function event()
+    {
+        $data['tittle'] = 'Event';
+
+        $data['event'] = $this->db->get('event')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('hmj/event', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function pengumuman()
+    {
+        $data['tittle'] = 'Pengumuman';
+
+        $data['event'] = $this->db->get('pengumuman')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('hmj/pengumuman', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function addStruktur()
     {
 
         $data['tittle'] = 'Tambah Struktur Organisasi';
+        // $data['kelas'] = $this->ModelHimpunan->getStruktur();
 
         $this->form_validation->set_rules('name', 'nama', 'required');
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
@@ -69,16 +90,6 @@ class Hmj extends CI_Controller
             $this->db->insert('struktur_organisasi', $data);
             redirect('Hmj/Struktur');
         }
-    }
-
-    public function event()
-    {
-        $data['tittle'] = 'Event';
-
-        $data['event'] = $this->db->get('event')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('hmj/event', $data);
-        $this->load->view('templates/footer');
     }
 
     public function addEvent()
@@ -104,16 +115,6 @@ class Hmj extends CI_Controller
             $this->db->insert('event', $data);
             redirect('Hmj/Event');
         }
-    }
-
-    public function pengumuman()
-    {
-        $data['tittle'] = 'Pengumuman';
-
-        $data['event'] = $this->db->get('pengumuman')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('hmj/pengumuman', $data);
-        $this->load->view('templates/footer');
     }
 
     public function addPengumuman()

@@ -43,7 +43,7 @@ class Auth extends CI_Controller
             }
         } else {
             $this->session->set_flashdata('message', 'Wrong username!');
-            redirect('Auth');
+            redirect('auth');
         }
     }
 
@@ -72,7 +72,7 @@ class Auth extends CI_Controller
 
             $this->db->insert('user', $data);
             $this->session->set_flashdata('message', 'Account has been created. Please login!');
-            redirect('Auth');
+            redirect('auth');
         }
     }
 

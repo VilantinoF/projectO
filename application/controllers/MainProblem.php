@@ -7,7 +7,7 @@ class MainProblem extends CI_Controller
     {
         parent::__construct();
         if (!$this->session->userdata('username')) {
-            redirect('Auth');
+            redirect('auth');
         }
     }
 
@@ -42,7 +42,9 @@ class MainProblem extends CI_Controller
                     echo '404 Page Note Found';
                     break;
             }
-            redirect($mproblem);
+            // var_dump($mproblem);
+            // die;
+            redirect($mproblem . '/index');
         }
     }
 }

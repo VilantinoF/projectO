@@ -93,7 +93,7 @@ class KependidikanInternal extends CI_Controller
     {
 
         $data['tittle'] = 'Data Mahasiswa';
-        $data['nilaiMhs'] = $this->ModelNilaiMhs->getById($id);
+        $data['nilaiMhs'] = $this->ModelMahasiswa->getNilaiById($id);
         $this->load->view('templates/header', $data);
         $this->load->view('kependidikan_intern/nilai_mahasiswa', $data);
         $this->load->view('templates/header');
@@ -116,7 +116,6 @@ class KependidikanInternal extends CI_Controller
             $this->load->view('templates/header');
         } else {
             $this->ModelMahasiswa->addMahasiswa();
-            $this->ModelMahasiswa->getNilaiById();
             redirect('KependidikanInternal/DataPribadi');
         }
     }
