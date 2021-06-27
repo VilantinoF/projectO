@@ -1,5 +1,7 @@
 <div class="container">
 
+    <a class=button href="<?= base_url('auth/logout'); ?>">Log Out</a>
+
     <h3 class="label">Events</h3>
     <table class="table">
         <tr>

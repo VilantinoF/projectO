@@ -6,7 +6,9 @@ class Hmj extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
+        if (!$this->session->userdata('username')) {
+            redirect('auth');
+        }
     }
 
     public function index()

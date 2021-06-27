@@ -6,7 +6,9 @@ class KependidikanInternal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
+        if (!$this->session->userdata('username')) {
+            redirect('auth');
+        }
     }
 
     public function index()
@@ -42,7 +44,7 @@ class KependidikanInternal extends CI_Controller
     {
         $data['tittle'] = 'Data Pribadi';
         $data['dosen'] = $this->ModelDosen->getAllDosen();
-        $data['mahasiswa'] = $this->ModelMahasiswa->getAllMahasiswa();
+        $data['mahasiswa'] = $this->db->get('data_mhs')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('kependidikan_intern/data_pribadi', $data);
         $this->load->view('templates/footer');
@@ -81,7 +83,7 @@ class KependidikanInternal extends CI_Controller
     {
 
         $data['tittle'] = 'Data Mahasiswa';
-        $data['mahasiswa'] = $this->ModelMahasiswa->getById($id);
+        $data['mahasiswa'] = $this->db->get_where('data_mhs', ['id' => $id])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('kependidikan_intern/mahasiswa', $data);
         $this->load->view('templates/header');
@@ -114,7 +116,7 @@ class KependidikanInternal extends CI_Controller
             $this->load->view('templates/header');
         } else {
             $this->ModelMahasiswa->addMahasiswa();
-            $this->ModelNilaiMhs->addNilai();
+            $this->ModelMahasiswa->getNilaiById();
             redirect('kependidikaninternal/datapribadi');
         }
     }
@@ -163,11 +165,12 @@ class KependidikanInternal extends CI_Controller
     {
         $data['tittle'] = 'Tambah Data';
 
-        $this->form_validation->set_rules('kelas', 'Kelas', 'required');
+        $this->form_validation->set_rules('benda', 'Benda', 'required');
+        $this->form_validation->set_rules('gedung', 'Gedung', 'required');
         // $this->form_validation->set_rules('file', 'Kelas', 'required');
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
-            $this->load->view('kependidikan_intern/anggaran_fasilitas');
+            $this->load->view('kependidikan_intern/add_anggaran_fasilitas');
             $this->load->view('templates/footer');
         } else {
             $data = [
@@ -177,7 +180,7 @@ class KependidikanInternal extends CI_Controller
             ];
 
             $this->db->insert('anggaran', $data);
-            redirect('kependidikan_intern/anggaran_fasilitas');
+            redirect('kependidikaninternal/anggaranfasilitas');
         }
     }
 }

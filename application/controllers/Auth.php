@@ -3,15 +3,12 @@
 class Auth extends CI_Controller
 {
 
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->library('form_validation');
-    }
-
     public function index()
     {
+        if ($this->session->userdata('username')) {
+            redirect('mainproblem');
+        }
+
         $data['tittle'] = 'Login Page';
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -53,6 +50,10 @@ class Auth extends CI_Controller
 
     public function signup()
     {
+        if ($this->session->userdata('username')) {
+            redirect('mainproblem');
+        }
+
         $data['tittle'] = 'Registration Page';
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]');

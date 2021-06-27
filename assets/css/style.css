@@ -3,19 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,25 +11,30 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -52,18 +45,19 @@ a {
 }
 
 /* CSS RESET */
+
 body {
-    background-color: #e1e5ea;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-color: #e1e5ea;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .container {
-    margin: 80px 20px;
-    text-align: center;
+	margin: 80px 20px;
+	text-align: center;
 }
 
 table, th, td {
-    padding: 20px;
+	padding: 20px;
 	text-align: left;
 }
 
@@ -80,7 +74,7 @@ table tr:last-child {
 	border-bottom-right-radius: 8px;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
@@ -105,9 +99,9 @@ th:last-child {
 }
 
 .table, .label, .button-index {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .label {
@@ -117,19 +111,19 @@ th:last-child {
 }
 
 form {
-    margin: auto;
-    margin-top: 100px;
-    width: max-content;
+	margin: auto;
+	margin-top: 100px;
+	width: max-content;
 }
 
 form label {
-    width: 130px;
+	width: 130px;
 	text-align: left;
 }
 
 form input {
 	border-radius: 6px;
-    height: 18px;
+	height: 18px;
 	border: 2px solid rgb(145, 145, 145);
 	padding: 2px;
 }
@@ -189,4 +183,9 @@ a:hover {
 	color: rgb(175, 20, 20);
 	font-size: 14px;
 	font-weight: 900;
+}
+
+a.link-kembali {
+	position: relative;
+	margin-top: 10px;
 }

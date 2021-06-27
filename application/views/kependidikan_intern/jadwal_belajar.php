@@ -1,5 +1,7 @@
 <div class="container">
 
+    <a class=button href="<?= base_url('auth/logout'); ?>">Log Out</a>
+
     <div class="label">Pembagian Jadwal Belajar</div>
     <table class="table">
         <tr>
